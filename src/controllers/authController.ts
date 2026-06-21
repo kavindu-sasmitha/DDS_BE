@@ -44,8 +44,8 @@ export const googleCallback = async (req: Request, res: Response) => {
     const { tokens } = await client.getToken(code as string);
     client.setCredentials(tokens);
 
-    // ✅ FIXED: redirect to frontend URL
-    res.redirect(`https://diniru-driving-training-school.vercel.app/auth/google/callback?token=${tokens.access_token}`);
+ // ✅ FIXED: ඔයාගේ අලුත්ම Frontend URL එකට Token එකත් එක්ක රීඩිරෙක්ට් කරනවා
+    res.redirect(`https://dds-fe.vercel.app/auth/google/callback?token=${tokens.access_token}`);
   } catch (err: any) {
     console.error("Callback error:", err);
     res.status(500).json({ message: "Callback failed" });
